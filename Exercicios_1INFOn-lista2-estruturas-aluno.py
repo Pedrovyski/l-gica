@@ -21,47 +21,48 @@ def tempo_para_percorrer_uma_distancia(distancia, velocidade):
 def aumento_salarial(salario, porcentagem):
     """ Recebe um salário e sua porcentagem de aumento, e retorna
     o novo salário"""
-    porcentagem = porcentagem / 100
-    aumento = salario * porcentagem
-    novo_salario = salario + aumento
-    return novo_salario
+    aumento= salario * porcentagem / 100
+    aumento_salarial = salario + aumento
+    return round(aumento_salarial,2)
 
 def preco_com_desconto(preco_original, percentual_desconto):
     """ Recebe um preço e sua porcentagem de desconto, e retorna
     novo preço"""
-    desconto = porcentagem / 100
-    novo_preço = preço * porcentagem
-    return novo_preço
-
-
-
+    desconto = preco_original * percentual_desconto / 100
+    preco_com_desconto = preco_original - desconto
+    return round(preco_com_desconto,2)
 
 def dias_para_segundos(dias, horas, minutos, segundos):
     """ Recebe uma data em dias com horas, minutos e segundos, e retorna
     a data em segundos"""
-
+    segundostotal = dias * 24 * 3600 + horas * 60 * 60 + minutos * 60 + segundos
+    return segundostotal
 
 def celsius_para_fahrenheit(c):
     """ Recebe uma temperatura em celsius, e retorna a temperatura
     em fahrenheit"""
-
+    F = (9 * c / 5) + 32
+    return F 
 
 def fahrenheit_para_celsius(f):
     """ Recebe uma temperatura em fahrenheit, e retorna a temperatura
      em celsius"""
-
+    c= (f-32)/1.8
+    return round(c,2)
 
 def preco_aluguel_carro(dias, km):
     """ Recebe uma quantidade de dias que o carro foi alugado e a
     quantidade de quilômetros rodados, e retorna o valor a ser pago.
     1 dia: 60 reais mais R$ 0,15 por km rodado."""
-
+    valor_total = km * 0.15 + dias * 60
+    return valor_total
 
 def dias_perdidos_por_fumar(cigarros_fumados_por_dia, anos_fumando):
     """ Recebe uma quantidade de cigarros fumados por dia e a quantidade
      de anos que fuma, e retorna o total de dias perdidos, sabendo que
      cada cigarro reduz a vida em 10 minutos."""
-
+    cigarros_fumados_por_dia = 10
+    anos_fumando = 
 
 def dois_elevado_a_um_milhao():
     """ Calcula dois elevado a um milhão, e retorna a quantidade de
