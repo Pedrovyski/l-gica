@@ -61,19 +61,34 @@ def dias_perdidos_por_fumar(cigarros_fumados_por_dia, anos_fumando):
     """ Recebe uma quantidade de cigarros fumados por dia e a quantidade
      de anos que fuma, e retorna o total de dias perdidos, sabendo que
      cada cigarro reduz a vida em 10 minutos."""
-    cigarros_fumados_por_dia = 10
-    anos_fumando = 
+    dias = anos_fumando * 365
+    minutos = cigarros_fumados_por_dia * 10
+    dp = minutos / 1440
+    dt = dp * dias
+
+    return round(dt, 2)
 
 def dois_elevado_a_um_milhao():
     """ Calcula dois elevado a um milhão, e retorna a quantidade de
     algarismos"""
 
+    d = 2 ** 1000000
+    d = str(d)
+    return len(d)
 
 def media_final_aprovado_reprovado(p1, p2, ep1, ep2):
     """ Recebe as notas das 2 provas e 2 exercícios de programação e retorna
     se o aluno foi ou não aprovado. As provas têm peso 7 e os exercícios
     têm peso 3. Cada parcial tem peso igual."""
+    n1 = p1 * 0.70 * p2 * 0.70
+    n2 = ep1 * 0.30 * ep2 * 0.30
 
+    mf = (n1 + n2) / 4 
+
+    if mf > 7.0:
+        return True
+    else:
+        return False
 
 def salario(valor_hora, horas_mensais):
     """ Recebe quanto ganha por hora e quantas horas trabalho ao mês,
@@ -84,6 +99,12 @@ def salario(valor_hora, horas_mensais):
     - IR é 11% do salário bruto
     - Sindicato é 5% do salário bruto"""
 
+    sei_la = valor_hora * horas_mensais
+    qualquer_coisa = (8/100) * sei_la
+    aiai = (11/100) * sei_la
+    ppk = (5/100) * sei_la
+
+    return sei_la - qualquer_coisa - aiai - ppk
 
 def tinta(metros_pintar):
     """ Recebe quantos metros quadrados precisa pintar,
@@ -91,13 +112,25 @@ def tinta(metros_pintar):
     A cobertura da tinta é de 3 metros por litro de tinta
     Cada lata possui 18 litros de tinta"""
 
+    from math import ceil
+
+    total_de_litros = metros_pintar / 3
+
+    total_latas = total_de_litros / 18
+
+    return ceil(total_latas)
+
 
 def duzias(ovos):
     ''' Receba o número de ovos e devolva a quantidade de dúzias
     correspondente. Considere sempre dúzias cheias, arredondando pra
     cima se necessário.
     '''
+    from math import ceil
 
+    irineu = ovos / 12
+
+    return ceil(irineu)
 
 def decompor_numero(numero):
     '''
@@ -105,22 +138,57 @@ def decompor_numero(numero):
     centenas, dezenas e unidades do mesmo.
     Obs.: não utilize operações com strings
     '''
+    ads = numero // 100
+    ad = (numero - (ads * 100)) // 10
+    a = numero - (ads * 100) - (ad * 10)
 
+    return ads, ad , a
 
 def palindrome(texto):
-    """Faça uma função que verifique se uma textro passado é palíndrome,
-    isto é, se é igual quando lido de trás pra frente."""
+    """Faça uma função que verifique se um texto é uma palindrome,
+    isto é, se é igual quando lido de trás pra frente"""
+
+    texto = texto.lower()
+    texto = texto.split('!@#$%*()')
+
+    if texto [::-1] == texto:
+        return True
+    else:
+        return False
 
 
 def troca_caixa(texto):
     """Vogais ficam em caixa alta (maiúsculas)
-    Consoantes ficam em caixa baixa (minúsculas)"""
-
+    Consoantes ficam em caixa baixa (minúsculas"""
 
 def imprime_mes_por_extenso(data):
     """Faça um programa que solicite a data de nascimento (dd/mm/aaaa)
     e imprima com o nome do mês por extenso
     """
+
+
+    data_certa = data.split('/')
+    dia = data_certa[0]
+    mes = data_certa[1]
+    ano = data_certa[2]
+    e = {1: 'janeiro',
+         2:'fevereiro',
+         3: 'março',
+         4: 'abril',
+         5: 'maio',
+         6: 'junho',
+         7: 'julho',
+         8: 'agosto',
+         9: 'setembro',
+         10: 'outubro',
+         11: 'novembro',
+         12: 'dezembro'
+         }
+    de = "de"
+
+    ret = dia + de + e[int(mes)] + de + ano
+
+    return ret
 
 
 def encontra_caracter(texto, caracter_procurado):
